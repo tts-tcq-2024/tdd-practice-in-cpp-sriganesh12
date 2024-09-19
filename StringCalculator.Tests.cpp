@@ -28,6 +28,15 @@ TEST(StringCalculatorAddTests, ExpectSumForTwoNumbers) {
     ASSERT_EQ(result, expectedresult);
 }
 
+TEST(StringCalculatorAddTests, ExpectSumForMultipleNumbers) {
+    int expectedresult = 10;
+    std::string input = "1,2,3,4";
+    StringCalculator objUnderTest;
+    int result = objUnderTest.add(input);
+
+    ASSERT_EQ(result, expectedresult);
+}
+
 TEST(StringCalculatorAddTests, ExpectExceptionForNegativeNumbers) {
     ASSERT_THROW({
         std::string input = "-1,2";
@@ -54,9 +63,18 @@ TEST(StringCalculatorAddTests, IgnoreNumbersGreaterThan1000) {
     ASSERT_EQ(result, expectedresult);
 }
 
-TEST(StringCalculatorAddTests, ExpectSumWithCustomDelimiter) {
+TEST(StringCalculatorAddTests, ExpectSumWithSingleCustomDelimiter) {
     int expectedresult = 3;
     std::string input = "//;\n1;2";
+    StringCalculator objUnderTest;
+    int result = objUnderTest.add(input);
+
+    ASSERT_EQ(result, expectedresult);
+}
+
+TEST(StringCalculatorAddTests, ExpectSumWithMultipleCustomDelimiter) {
+    int expectedresult = 6;
+    std::string input = "//*\n12***3";
     StringCalculator objUnderTest;
     int result = objUnderTest.add(input);
 
