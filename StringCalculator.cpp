@@ -5,17 +5,17 @@
 #include <iostream>
 #include <stdexcept>
 
-void StringCalculator::checkForException(const std::string& item)
+void StringCalculator::checkForException(const std::string item)
 {
     for(char ch : item)
       if(isalpha(ch))
       {
-          std::string message = "Alphabets not allowed: ";
+          std::string message = "Alphabets not allowed";
           std::runtime_error(message);
       }
 }
 
-int StringCalculator::addNumbersOnly(const std::string& item)
+int StringCalculator::addNumbersOnly(const std::string item)
 {
   int value = std::stoi(item);
   if(value > 0 && value <= 1000)
@@ -25,7 +25,7 @@ int StringCalculator::addNumbersOnly(const std::string& item)
   return 0;
 }
 
-void StringCalculator::prepareString(std::string& name)
+void StringCalculator::prepareString(std::string name)
 {
   if(!name.empty())
   {
@@ -39,7 +39,7 @@ void StringCalculator::prepareString(std::string& name)
   }
 }
 
-int StringCalculator::add(const std::string& name)
+int StringCalculator::add(std::string name)
 {
   prepareString(name);
   std::stringstream ss(name);
