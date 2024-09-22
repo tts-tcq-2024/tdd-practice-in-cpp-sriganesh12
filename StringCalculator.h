@@ -9,7 +9,7 @@ public:
 int add(const std::string& name);
 private:
 void checkForException(const std::string& name);
-void checkNegativeNumbers(const std::string& name);
+void prepareString(const std::string& name)
 int addNumbersOnly(const std::string& name);
 };
 
