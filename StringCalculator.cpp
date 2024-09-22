@@ -1,23 +1,20 @@
 #include "StringCalculator.h"
-#include <string>
-#include <cctype>
-#include <sstream>
-#include <iostream>
-#include <stdexcept>
+#include <bits/stdc++.h>
+using namespace std;
 
-void StringCalculator::checkForException(const std::string item)
+void StringCalculator::checkForException(const string item)
 {
     for(char ch : item)
       if(isalpha(ch))
       {
-          std::string message = "Alphabets not allowed";
-          std::runtime_error(message);
+          string message = "Alphabets not allowed";
+          throw runtime_error(message);
       }
 }
 
-int StringCalculator::addNumbersOnly(const std::string item)
+int StringCalculator::addNumbersOnly(const string item)
 {
-  int value = std::stoi(item);
+  int value = stoi(item);
   if(value > 0 && value <= 1000)
   {
     return value;
@@ -25,7 +22,7 @@ int StringCalculator::addNumbersOnly(const std::string item)
   return 0;
 }
 
-void StringCalculator::prepareString(std::string name)
+void StringCalculator::prepareString(string name)
 {
   if(!name.empty())
   {
@@ -33,20 +30,20 @@ void StringCalculator::prepareString(std::string name)
     {
       char delimiter = name[2];
       name = name.substr(4);
-      std::replace(name.begin(), name.end(), delimiter, ',');
+      replace(name.begin(), name.end(), delimiter, ',');
     }
-    std::replace(name.begin(), name.end(), '\n', ',');
+    replace(name.begin(), name.end(), '\n', ',');
   }
 }
 
-int StringCalculator::add(std::string name)
+int StringCalculator::add(string name)
 {
   prepareString(name);
-  std::stringstream ss(name);
-  std::string item;
+  stringstream ss(name);
+  string item;
   int sum = 0;
 
-  while (std::getline(ss, item, ','))
+  while (getline(ss, item, ','))
   {
     checkForException(item);
     int value = addNumbersOnly(item);
