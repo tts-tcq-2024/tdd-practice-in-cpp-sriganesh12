@@ -1,5 +1,5 @@
 #include "StringCalculator.h"
-#include <bits/stdc++.h>
+
 using namespace std;
 
 void StringCalculator::checkForException(const string item)
@@ -12,10 +12,20 @@ void StringCalculator::checkForException(const string item)
       }
 }
 
-int StringCalculator::addNumbersOnly(const string item)
+void StringCalculator::checkForNegativeInteger(const string item)
 {
   int value = stoi(item);
-  if(value > 0 && value <= 1000)
+  if(value < 0)
+  {
+      string message = "Negative Integers not allowed";
+      throw runtime_error(message);
+  }
+}
+
+int StringCalculator::checkUpperLimitsForInteger(const string item)
+{
+  int value = stoi(item);
+  if(value <= 1000)
   {
     return value;
   }
