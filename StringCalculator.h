@@ -7,12 +7,12 @@ using namespace std;
 class StringCalculator
 {
 public:
-int add(const std::string name);
+int add(const string name);
 private:
-void prepareString(std::string name);
-void checkForException(const std::string item);
-void checkForNegativeInteger(const std::string item);
-int checkUpperLimitsForInteger(const std::string item);
+void prepareString(string& name);
+void checkForException(const string item);
+void checkForNegativeInteger(const string item);
+int checkUpperLimitsForInteger(const string item);
 };
 
 #endif
