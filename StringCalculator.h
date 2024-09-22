@@ -6,11 +6,11 @@
 class StringCalculator
 {
 public:
-int add(const std::string& name);
+int add(const std::string name);
 private:
-void checkForException(const std::string& name);
-void prepareString(std::string& name);
-int addNumbersOnly(const std::string& name);
+void prepareString(std::string name);
+void checkForException(const std::string name);
+int addNumbersOnly(const std::string name);
 };
 
 #endif
