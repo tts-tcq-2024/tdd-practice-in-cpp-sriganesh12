@@ -32,7 +32,7 @@ int StringCalculator::checkUpperLimitsForInteger(const string item)
   return 0;
 }
 
-void StringCalculator::prepareString(string name)
+void StringCalculator::prepareString(string& name)
 {
   if(!name.empty())
   {
