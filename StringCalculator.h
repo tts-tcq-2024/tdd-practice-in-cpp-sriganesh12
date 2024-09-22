@@ -1,7 +1,8 @@
 #ifndef STRINGCALCULATOR_H
 #define STRINGCALCULATOR_H
 
-#include <string>
+#include <bits/stdc++.h>
+using namespace std;
 
 class StringCalculator
 {
