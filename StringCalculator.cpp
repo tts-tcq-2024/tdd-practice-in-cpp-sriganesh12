@@ -11,7 +11,7 @@ void StringCalculator::checkForException(const std::string& item)
       if(isalpha(ch))
       {
           std::string message = "Alphabets not allowed: ";
-          std::runtime_error(message)
+          std::runtime_error(message);
       }
 }
 
@@ -25,7 +25,7 @@ int StringCalculator::addNumbersOnly(const std::string& item)
   return 0;
 }
 
-void StringCalculator::prepareString(const std::string& name)
+void StringCalculator::prepareString(std::string& name)
 {
   if(!name.empty())
   {
@@ -33,9 +33,9 @@ void StringCalculator::prepareString(const std::string& name)
     {
       char delimiter = name[2];
       name = name.substr(4);
-      str::replace(name.begin(), name.end(), delimiter, ',');
+      std::replace(name.begin(), name.end(), delimiter, ',');
     }
-    str::replace(name.begin(), name.end(), '\n', ',');
+    std::replace(name.begin(), name.end(), '\n', ',');
   }
 }
 
