@@ -7,7 +7,7 @@ using namespace std;
 class StringCalculator
 {
 public:
-int add(const string name);
+int add(string name);
 private:
 void prepareString(string& name);
 void checkForException(const string item);
