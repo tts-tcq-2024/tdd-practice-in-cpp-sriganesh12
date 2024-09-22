@@ -56,7 +56,8 @@ int StringCalculator::add(string name)
   while (getline(ss, item, ','))
   {
     checkForException(item);
-    int value = addNumbersOnly(item);
+    checkForNegativeInteger(item);
+    int value = checkUpperLimitsForInteger(item);
     sum += value;
   }
 
