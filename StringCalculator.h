@@ -11,8 +11,9 @@ int add(string name);
 private:
 void prepareString(string& name);
 void checkForException(const string item);
-void checkForNegativeInteger(const string item);
-int checkUpperLimitsForInteger(const string item);
+int getInteger(const string item);
+void checkForNegativeInteger(const int value);
+int checkUpperLimitsForInteger(const int value);
 };
 
 #endif
