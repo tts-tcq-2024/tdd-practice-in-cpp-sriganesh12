@@ -12,19 +12,26 @@ void StringCalculator::checkForException(const string item)
       }
 }
 
-void StringCalculator::checkForNegativeInteger(const string item)
+int StringCalculator::getInteger(const string item)
 {
-  int value = stoi(item);
-  if(value < 0)
-  {
-      string message = "Negative Integers not allowed";
-      throw runtime_error(message);
-  }
+    if(!item.empty())
+    {
+        return stoi(item);
+    }
+    return 0;
 }
 
-int StringCalculator::checkUpperLimitsForInteger(const string item)
+void StringCalculator::checkForNegativeInteger(const int value)
 {
-  int value = stoi(item);
+    if(value < 0)
+    {
+      string message = "Negative Integers not allowed";
+      throw runtime_error(message);
+    }
+}
+
+int StringCalculator::checkUpperLimitsForInteger(const int value)
+{
   if(value <= 1000)
   {
     return value;
@@ -56,9 +63,10 @@ int StringCalculator::add(string name)
   while (getline(ss, item, ','))
   {
     checkForException(item);
-    checkForNegativeInteger(item);
-    int value = checkUpperLimitsForInteger(item);
-    sum += value;
+    int value = getInteger(item);
+    checkForNegativeInteger(value);
+    int valueToAdd = checkUpperLimitsForInteger(value);
+    sum += valueToAdd;
   }
 
   return sum;
